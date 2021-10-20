@@ -16,9 +16,9 @@ import com.example.springboot.Model.jpafamilia.PessoaJpaRepositorio;
 @RestController
 public class PessoasController {
 
-    private PessoaJpaRepositorio repPessoa;
+	private PessoaJpaRepositorio repPessoa;
 
-    PessoasController(PessoaJpaRepositorio obj) {
+	PessoasController(PessoaJpaRepositorio obj) {
 	       this.repPessoa = obj;
 	}
 

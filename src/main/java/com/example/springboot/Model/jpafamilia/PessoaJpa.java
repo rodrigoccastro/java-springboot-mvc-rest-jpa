@@ -12,7 +12,7 @@ public class PessoaJpa {
 	@Id
 	private String cpf;
 
-    @Column(nullable = false)
+        @Column(nullable = false)
 	private String nome;
 
 	public String getCpf() {

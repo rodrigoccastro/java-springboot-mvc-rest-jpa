@@ -47,24 +47,24 @@ public class PessoasController {
 	public ResponseEntity<PessoaJpa> Put(@PathVariable(value = "cpf") String cpf, @Validated @RequestBody PessoaJpa newPessoa)
 	{
 		Optional<PessoaJpa> oldPessoa = repPessoa.findById(cpf);
-	    if(oldPessoa.isPresent()){
-	    	PessoaJpa pessoa = oldPessoa.get();
-	        pessoa.setNome(newPessoa.getNome());
-	        repPessoa.save(pessoa);
-	        return new ResponseEntity<PessoaJpa>(pessoa, HttpStatus.OK);
-	    } else
-	    	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		if(oldPessoa.isPresent()){
+	    		PessoaJpa pessoa = oldPessoa.get();
+	        	pessoa.setNome(newPessoa.getNome());
+	        	repPessoa.save(pessoa);
+	        	return new ResponseEntity<PessoaJpa>(pessoa, HttpStatus.OK);
+	    	} else
+	    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	@RequestMapping(value = "/pessoa/{cpf}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> Delete(@PathVariable(value = "cpf") String cpf)
 	{
 		Optional<PessoaJpa> pessoa = repPessoa.findById(cpf);
-	    if(pessoa.isPresent()){
-	    	repPessoa.delete(pessoa.get());
-	        return new ResponseEntity<>(HttpStatus.OK);
-	    } else
-	      	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    	if(pessoa.isPresent()){
+	    		repPessoa.delete(pessoa.get());
+	        	return new ResponseEntity<>(HttpStatus.OK);
+	    	} else
+	      		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
 
